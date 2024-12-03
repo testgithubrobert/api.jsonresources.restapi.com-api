@@ -1,0 +1,42 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./controller/server/api.server.controller.js",
+    "dev": "nodemon ./controller/server/api.server.controller.js"
+  },
+  "author": "robert sims",
+  "license": "ISC",
+  "description": "node.js api",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "errorhandler": "^1.5.1",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.4",
+    "node": "^22.11.0",
+    "uuid": "^11.0.2",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/testgithubrobert/api.jsonresources.restapi.com.git"
+  },
+  "keywords": [
+    "node.js",
+    "express.js"
+  ],
+  "bugs": {
+    "url": "https://github.com/testgithubrobert/api.jsonresources.restapi.com/issues"
+  },
+  "homepage": "https://github.com/testgithubrobert/api.jsonresources.restapi.com#readme"
+}

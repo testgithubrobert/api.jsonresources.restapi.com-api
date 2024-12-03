@@ -1,0 +1,26 @@
+{
+    "about_api": {
+        "information": "This API is a free public api for testing out projects and carry out CRUD operations for both the frontend and the backend. It provides a simple way of interacting with json resources inform of json objects and arrays. You can be able to use it to create mainly simple websites or application through fetching on this API. Its a MERN stack project developed and managed by robert sims mern stack developer, created in 2024 using different technologies that include node and express.js for the server, mysql for managing the database and react.js for the frontend part. Its free and effectively used by mainly frontend developers while creating and testing out different frontend or ui designs for better web applications. You can also be able to carry out different HTTP/HTTPS methods using the CRUD operations in order to access different API resources, it uses a server made up of Node.js which runs via chromes v8 engine which makes it suitable for handling async operations quickly. It provides resources like sample texts, photos, users information and also simple posts for sampling out projects. You can be able to use the built in javascript fetch api or axios to access these resources on the frontend of your project or application."
+    },
+    "privacy": {
+        "information": "This api will not share any of your used user information like emails, usernames or passwords accessed via google, it only gets access to your browsers storage but does not store or add files or access files to your local storage of your machines."
+    },
+    "terms": {
+        "information": "To use this api you must allow it to access your browsers session and cookie storage for easy remembering you when using the api. This api will also have access to your cookies storage and will handle some crucial operations using cookies from its server."
+    },
+    "publish-date": 2024,
+    "backend developer": "robert sims",
+    "frontend developer": "robert sims",
+    "technologies": [
+        "node.js",
+        "express.js"
+    ],
+    "production": true,
+    "development": true,
+    "date": "11/12/2024",
+    "metadata": {
+        "privacy": "No access to any of a visitors emails or passwords!",
+        "terms": "Only gets access to a browsers cookie storage for remembering a visitor!",
+        "copyright": "@copyright 2024"
+    }
+}
