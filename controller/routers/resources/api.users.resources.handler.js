@@ -1,7 +1,7 @@
 "use strict";
 const express = require("express");
 const router = express.Router();
-let DBMSPool_connection = require("../../../model/connection/api.model.pool.connection");
+// let DBMSPool_connection = require("../../../model/connection/api.model.pool.connection");
 const DeleteResource = require("../modules/delete.resource");
 const ReadResource = require("../modules/get.resource");
 const ReadResources = require("../modules/get.resources");
@@ -10,22 +10,20 @@ const ReadResources = require("../modules/get.resources");
 router
   .route("/")
   .get(async (request, response) => {
-    ReadResources(request, response, "Users_Resources");
+    ReadResources(request, response, "users.resources.json");
   })
   .post(async (request, response) => {
     this.response = response;
 
     this.response.statusCode = 201;
-    this.response.setHeader("Content-Type", "application/json");
+    this.response.setHeader("Content-Type", "application/json"); 
     this.response.setHeader("Access-Control-Allow-Method", "POST");
     this.response.contentType = "application/json";
 
     // handler and catch all api server errors to prevent app crush
     try {
       // query all users available resources from db
-      const UsersResources = await DBMSPool_connection.query(
-        "SELECT * FROM Users_Resources"
-      );
+      const UsersResources = require("../../../model/json/users.resources.json");
 
       // filter out the corresponding or co-existing duplicate resource with the request from the db
       let FoundExistingUserResource = UsersResources[0].find((resource) => {
@@ -91,9 +89,7 @@ router
     // handler and catch all api server errors to prevent app crush
     try {
       // query all users available resources from db
-      const UsersResources = await DBMSPool_connection.query(
-        "SELECT * FROM Users_Resources"
-      );
+      const UsersResources = require("../../../model/json/users.resources.json");
 
       // filter out the corresponding or co-existing resource with requested id
       let FoundExistingUserResource = UsersResources[0].find((resource) => {
@@ -136,7 +132,7 @@ router
     }
   })
   .delete(async (request, response) => {
-    DeleteResource(request, response, "Users_Resources");
+    DeleteResource(request, response, "users.resources.json");
   });
 
 // send a 404 response for undefined queries or routes

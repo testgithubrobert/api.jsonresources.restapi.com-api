@@ -1,16 +1,17 @@
 "use strict";
 const express = require("express");
 const router = express.Router();
-let DBMSPool_connection = require("../../../model/connection/api.model.pool.connection");
+// let DBMSPool_connection = require("../../../model/connection/api.model.pool.connection");
 const DeleteResource = require("../modules/delete.resource");
 const ReadResource = require("../modules/get.resource");
 const ReadResources = require("../modules/get.resources");
+const resources = require("../../../model/json/photo.resources.json");
 
 // photos resources routes handler
 router
   .route("/")
   .get(async (request, response) => {
-    ReadResources(request, response, "Photo_Resources");
+    ReadResources(request, response, "photo.resources.json");
   })
   .post(async (request, response) => {
     this.response = response;
@@ -23,9 +24,7 @@ router
     // handler and catch all api server errors to prevent app crush
     try {
       // query all photos available resources from db
-      const PhotoResources = await DBMSPool_connection.query(
-        "SELECT * FROM Photo_Resources"
-      );
+      const PhotoResources = require("../../../model/json/photo.resources.json");
 
       // filter out the corresponding or co-existing duplicate resource with the request from the db
       let FoundExistingPhotoResource = PhotoResources[0].find((resource) => {
@@ -78,9 +77,7 @@ router
     // handler and catch all api server errors to prevent app crush
     try {
       // query all photos available resources from db
-      const PhotoResources = await DBMSPool_connection.query(
-        "SELECT * FROM Photo_Resources"
-      );
+      const PhotoResources = require("../../../model/json/photo.resources.json");
 
       // filter out the corresponding or co-existing duplicate resource with the request from the db
       let FoundExistingPhotoResource = PhotoResources[0].find((resource) => {
@@ -118,7 +115,7 @@ router
     }
   })
   .delete(async (request, response) => {
-    DeleteResource(request, response, "Photo_Resources");
+    DeleteResource(request, response, "photo.resources.json");
   });
 
 // send a 404 response for undefined queries or routes

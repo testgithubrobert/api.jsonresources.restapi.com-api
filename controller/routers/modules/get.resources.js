@@ -1,7 +1,7 @@
 "use strict";
-let DBMSPool_connection = require("../../../model/connection/api.model.pool.connection");
+// let DBMSPool_connection = require("../../../model/connection/api.model.pool.connection");
 
-module.exports = async (request, response, table) => {
+module.exports = async (request, response, url) => {
   this.response = response;
 
   this.response.statusCode = Number(parseInt(200));
@@ -12,19 +12,17 @@ module.exports = async (request, response, table) => {
   // handler and catch all api server errors to prevent app crush
   try {
     // query all users available resources from db
-    const _resources = await DBMSPool_connection.query(
-      `SELECT * FROM ${table}`
-    );
+    const _resources = require(`../../../model/json/${url}`)
 
-    if (request && Array.isArray(_resources[0]) && _resources[0].length < 1) {
+    if (request && Array.isArray(_resources) && _resources.length < 1) {
       return this.response.json({
         Message: String("There are currently no api resources for this query!"),
       });
     } else
       return this.response.json(
-        Array.isArray(_resources[0]) &&
-          _resources[0].length > Number(parseInt(0))
-          ? _resources[0]
+        Array.isArray(_resources) &&
+          _resources.length > Number(parseInt(0))
+          ? _resources
           : { Message: "There are currently no api resources for this query!" }
       );
   } catch (error) {

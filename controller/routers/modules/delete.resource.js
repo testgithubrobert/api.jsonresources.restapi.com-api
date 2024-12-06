@@ -1,7 +1,7 @@
 "use strict";
-let DBMSPool_connection = require("../../../model/connection/api.model.pool.connection");
+// let DBMSPool_connection = require("../../../model/connection/api.model.pool.connection");
 
-module.exports = async (request, response, table) => {
+module.exports = async (request, response, url) => {
   this.response = response;
 
   this.response.statusCode = Number(parseInt(200));
@@ -12,12 +12,10 @@ module.exports = async (request, response, table) => {
   // handler and catch all api server errors to prevent app crush
   try {
     // query all texts available resources from db
-    const _resources = await DBMSPool_connection.query(
-      `SELECT * FROM ${table}`
-    );
+    const _resources = require(`../../../model/json/${url}`);
 
     // filter out the corresponding or co-existing duplicate resource with the request from the db
-    let FoundResource = _resources[0].find((resource) => {
+    let FoundResource = _resources.find((resource) => {
       return resource.id === request.params.id;
     });
 
