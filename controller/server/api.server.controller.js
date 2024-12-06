@@ -83,14 +83,14 @@ api.use(
   })
 );
 api.use(express.json());
-api.set("port", process.env.PORT || 4000);
-api.set("host", process.env.HOST);
+// api.set("port", process.env.PORT || 4000);
+// api.set("host", process.env.HOST);
 api.set("strict routing", Boolean(true));
 api.set("NODE_ENV", "production");
-// use error handler only when the app is in development mode
-process.env.NODE_ENV !== api.get("NODE_ENV")
-  ? api.use(require("errorhandler")())
-  : "";
+// // use error handler only when the app is in development mode
+// process.env.NODE_ENV !== api.get("NODE_ENV")
+//   ? api.use(require("errorhandler")())
+//   : "";
 
 // middleware for api router resources
 api.use("/resources", require("../routers/api.resources.routers.controller"));
@@ -104,7 +104,7 @@ EventEmitter.on("connect", () =>
 
 server.on("connection", () => EventEmitter.emit("connect"));
 
-server.listen(process.env.PORT || api.get("port"), api.get("host"), () => {
+server.listen(process.env.PORT || 5000, () => {
   EventEmitter.on("listening", () =>
     console.log(
       `api server running on port ${process.env.PORT || api.get("port")}`

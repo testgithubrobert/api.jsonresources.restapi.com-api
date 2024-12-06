@@ -5,7 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./controller/server/api.server.controller.js",
-    "dev": "nodemon ./controller/server/api.server.controller.js"
+    "dev": "nodemon ./controller/server/api.server.controller.js",
+    "build": "npm run build",
+    "prod": "npm run build"
   },
   "author": "robert sims",
   "license": "ISC",
